@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>All available products:</h3>
+  <div class="col-xs-6 col-sm-3" *ngFor="let ShopItem of ShopItems, let i = index">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4><strong>{{ ShopItems[i].name }}</strong></h4>
+      </div>
+      <div class="panel-body">
+        <h4> {{ ShopItems[i].description }} </h4>
+        <h4>{{ ShopItems[i].isImported }}</h4>
+        <h4>Price:<h3><span class="text-danger">{{ ShopItems[i].price | currency }}</span></h3></h4>
+        <button class="btn btn-primary active" style="float: right;" 
+        (click)="onAddToCart(ShopItems[i].name, ShopItems[i].description, ShopItems[i].price, ShopItems[i].category, ShopItems[i].imported, i)">Add to cart</button>
+      </div>
+    </div>
+  </div>
+  <div id="goToCart">
+    <button class="btn btn-success btn-lg" (click) = "goToCart(i)" >View your cart</button>
+  </div>
+</div>
